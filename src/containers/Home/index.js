@@ -32,7 +32,7 @@ function App() {
         <Input placeholder="Steve Jobs" ref={inputName}></Input>
       </div>
 
-      <Button>Novo Pedido</Button>
+      <Button onClick={newOrder}>Novo Pedido</Button>
 
     </Container>
   );

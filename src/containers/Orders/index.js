@@ -10,6 +10,14 @@ import Button from "../../components/Button";
 import { Image, Order } from './styles'
 
 function App() {
+  const [orders, setOrders] = useState([])
+
+
+  function deleteOrder(orderId) {
+    const newOrder = orders.filter(order => order.id !== orderId)
+
+    setOrders(newOrder)
+  }
 
   return (
     <Container>
@@ -25,12 +33,12 @@ function App() {
               <h1>{order.name}</h1>
             </div>
  
-            <button><img src={Trash} alt="trash"></img></button>
+            <button onClick={() => deleteOrder(order.id)}><img src={Trash} alt="trash"></img></button>
           </Order>
         ))
       }
 
-      <Button isGray={true} onClick={newOrder}>Voltar</Button>
+      <Button isGray={true}>Voltar</Button>
 
     </Container>
   );
