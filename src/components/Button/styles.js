@@ -4,7 +4,7 @@ export const Button = styled.button `
     width: 342px;
     height: 68px;
 
-    background: ${props => props.isGray ? 'rgba(255, 255, 255, 0.14)' : '#D93856'};
+    background: #D93856;
 
     color: #FFF;
     text-align: center;
@@ -21,4 +21,9 @@ export const Button = styled.button `
     &:active { opacity: 0.6; }
 
     margin-top: calc(76px - 40px);
+
+    ${props => props.isGray && `
+        margin-top: 65px;
+        background: rgba(255, 255, 255, 0.14);
+    `}
 `

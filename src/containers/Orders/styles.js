@@ -1,79 +1,66 @@
 import styled from 'styled-components'
 
-export const Container = styled.div `
-    background: #0A0A10;
-    height: 100%;
-    min-height: 100vh;
 
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-
-    padding: 10px 0 50px;
-`;
-
-export const H1 = styled.h1 `
-    color: #FFF;
-    text-align: center;
-    font-size: 28px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: normal;
-
-    margin: 25px 0 75px;
-`
-
-export const Image = styled.img `
+export const Image = styled.img`
     width: 246px;
     height: 354px;
 `
 
-export const InputLabel = styled.label `
-    color: #EEE;
-    font-size: 18px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: 22px;
-    letter-spacing: -0.408px;
-    margin-left: calc(56px - 36px);
-`
-export const Input = styled.input `
+export const Order = styled.div`
     display: flex;
-    padding-left: 15px;
+    flex-direction: row;
     align-items: center;
-    margin-bottom: 40px;
+    justify-content: space-between;
 
-    border: none;
+    width: 342px;
+    height: 101px;
+
+    margin-bottom: 20px;
+    padding: 17px 15px 13px 27px;
     border-radius: 14px;
     background: rgba(255, 255, 255, 0.25);
-    outline: none;
+        
+    div {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
 
-    width: 340px;
-    height: 60px;
+        height: 100%;
+        width: 85%;
 
-    color: white;
-    font-size: 18px;
-`;
+        p {
+            color: #FFF;
+            font-size: 18px;
+            font-style: normal;
+            font-weight: 300;
+            line-height: normal;
+        };
 
-export const Button = styled.button `    
-    width: 342px;
-    height: 68px;
+        h1 {
+            color: #FFF;
+            font-size: 18px;
+            font-style: normal;
+            font-weight: 700;
+            line-height: normal;
 
-    background: #D93856;
+            width: 24px;
+            height: 28px;
+        }
+    }
 
-    color: #FFF;
-    text-align: center;
-    font-size: 17px;
-    font-style: normal;
-    font-weight: 900;
-    line-height: 2.5px;
+        button {
+            align-items: end;
+            background: none;
+            border: none;
 
-    border: none;
-    outline: none;
-    cursor: pointer;
+            width: 28px;
+            height: 28px;
 
-    &:hover { opacity: 0.8; }
-    &:active { opacity: 0.6; }
+            cursor: pointer;
 
-    margin-top: calc(76px - 40px);
+            img {
+                width: 100%;
+                height: 100%;
+            }
+        }
 `

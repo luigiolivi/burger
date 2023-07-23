@@ -1,25 +1,38 @@
 import React from "react";
 
-import Order from '../../assets/order.png'
+import OrderLogo from '../../assets/order.png'
+import Trash from '../../assets/trash.png'
 
-import { Container, H1, Image, InputLabel, Input, Button } from './styles'
+import Container from "../../components/Container";
+import H1 from "../../components/H1";
+import Button from "../../components/Button";
+
+import { Image, Order } from './styles'
 
 function App() {
+  const orders = [
+    { id: Math.random, items: "1 Coca-Cola, 1 X-Burger", name: "Luigi" },
+    { id: Math.random, items: "1 Suco de laranja, 1 Batata frita grande, 1 Double Cheddar", name:"Roberto" }
+  ]
+
   return (
     <Container>
-      <Image alt="codeBurger-logo" src={Order}></Image>
+      <Image alt="codeBurger-logo" src={OrderLogo}></Image>
 
       <H1 isPedidos={true}>Pedidos</H1>
 
-      <div>
-        <InputLabel>Pedido</InputLabel>
-        <Input placeholder="1 Coca-Cola, 1 X-Salada
-"></Input>
-
-
-        <InputLabel>Nome do cliente</InputLabel>
-        <Input placeholder="Steve Jobs"></Input>
-      </div>
+      {
+        orders.map( order => (
+          <Order>
+            <div>
+              <p>{order.items}</p>
+              <h1>{order.name}</h1>
+            </div>
+ 
+            <button><img src={Trash} alt="trash"></img></button>
+          </Order>
+        ))
+      }
 
       <Button isGray={true}>Voltar</Button>
 
