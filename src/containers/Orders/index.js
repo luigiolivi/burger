@@ -10,11 +10,6 @@ import Button from "../../components/Button";
 import { Image, Order } from './styles'
 
 function App() {
-  const [ orders, setOrders ] = useState([])
-
-  function newOrder() {
-    setOrders()
-  }
 
   return (
     <Container>
