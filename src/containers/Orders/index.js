@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 import OrderLogo from '../../assets/order.png'
 import Trash from '../../assets/trash.png'
@@ -10,10 +10,11 @@ import Button from "../../components/Button";
 import { Image, Order } from './styles'
 
 function App() {
-  const orders = [
-    { id: Math.random, items: "1 Coca-Cola, 1 X-Burger", name: "Luigi" },
-    { id: Math.random, items: "1 Suco de laranja, 1 Batata frita grande, 1 Double Cheddar", name:"Roberto" }
-  ]
+  const [ orders, setOrders ] = useState([])
+
+  function newOrder() {
+    setOrders()
+  }
 
   return (
     <Container>
@@ -34,7 +35,7 @@ function App() {
         ))
       }
 
-      <Button isGray={true}>Voltar</Button>
+      <Button isGray={true} onClick={newOrder}>Voltar</Button>
 
     </Container>
   );
