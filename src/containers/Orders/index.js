@@ -1,4 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import axios from 'axios'
+import { useNavigate } from 'react-router-dom'
 
 import OrderLogo from '../../assets/order.png'
 import Trash from '../../assets/trash.png'
@@ -12,11 +14,26 @@ import { Image, Order } from './styles'
 function App() {
   const [orders, setOrders] = useState([])
 
+  const navigate = useNavigate()
+
+  useEffect(() => {
+     async function fetchOrders() {
+        const { data: allOrders } = await axios.get("http://localhost:3001/order")
+  
+        setOrders(allOrders)
+     }
+
+     fetchOrders()
+  }, [orders])
 
   function deleteOrder(orderId) {
     const newOrder = orders.filter(order => order.id !== orderId)
 
     setOrders(newOrder)
+  }
+
+  function goHomePage() {
+    navigate('/')
   }
 
   return (
@@ -38,7 +55,7 @@ function App() {
         ))
       }
 
-      <Button isGray={true}>Voltar</Button>
+      <Button isGray={true} onClick={goHomePage}>Voltar</Button>
 
     </Container>
   );

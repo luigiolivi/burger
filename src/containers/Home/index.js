@@ -1,4 +1,6 @@
-import React, { useState, useRef } from "react";
+import React, { useRef } from "react";
+import axios from 'axios'
+import { useNavigate } from 'react-router-dom'
 
 import Logo from '../../assets/logo.png'
 
@@ -8,12 +10,19 @@ import H1 from "../../components/H1";
 import { Image, InputLabel, Input } from './styles'
 
 function App() {
-  const [orders, setOrders] = useState([])
   const inputItems = useRef()
   const inputName = useRef()
 
-  function newOrder() {
-    setOrders([...orders, { id: Math.random(), items: inputItems.current.value, name: inputName.current.value }])
+  const navigate = useNavigate()
+
+  const newOrder = async () => {
+    await axios.post("http://localhost:3001/order", {
+      id: Math.random(),
+      items: inputItems.current.value,
+      name: inputName.current.value
+    });
+
+    navigate('/order')
   }
 
   return (
