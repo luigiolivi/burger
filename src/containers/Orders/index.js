@@ -26,7 +26,8 @@ function App() {
      fetchOrders()
   }, [orders])
 
-  function deleteOrder(orderId) {
+  async function deleteOrder(orderId) {
+    await axios.delete(`http://localhost:3001/order/${orderId}`)
     const newOrder = orders.filter(order => order.id !== orderId)
 
     setOrders(newOrder)
